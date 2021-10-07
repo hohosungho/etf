@@ -49,7 +49,7 @@ def call_yahoo_finance_api(ticker)
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   request = Net::HTTP::Get.new(url)
-  request["x-api-key"] = Rails.configuration.yahoofinance['api_key']
+  request["x-api-key"] = ENV['YAHOOFINANCE_API_KEY']
 
   response = http.request(request)
   return {
